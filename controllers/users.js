@@ -11,10 +11,12 @@ module.exports.login = function(req,res) {
                     + '<head>\n'
                     + '   <meta charset="UTF-8">\n'
                     + '   <title>Login to EvictionLand</title>\n'
+                    + '   <link rel="stylesheet" href="/stylesheets/login.css"\n'
                     + '</head>\n'
                     + '<body>\n'
+                    + '<div class="header"></div>\n'
                     + '<input type="text" />\n'
-                    + '<button name="submit">Login</button>\n'
+                    + '<button  class="okButton" name="submit">Login</button>\n'
                     + '</body>\n'
                     + '</html>\n';
 
