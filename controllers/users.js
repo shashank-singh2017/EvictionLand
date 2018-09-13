@@ -15,8 +15,13 @@ module.exports.login = function(req,res) {
                     + '</head>\n'
                     + '<body>\n'
                     + '<div class="header"></div>\n'
-                    + '<input type="text" />\n'
+                    + '<div class="loginForm">\n'
+                    + '<input class="username" type="text" />\n'
+                    + '<br>\n'
+                    + '<input class="password" type="password" />\n'
+                    + '<br>\n'
                     + '<button  class="okButton" name="submit">Login</button>\n'
+                    + '</div>\n'
                     + '</body>\n'
                     + '</html>\n';
 
