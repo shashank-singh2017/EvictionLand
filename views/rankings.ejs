@@ -1,23 +1,132 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
 
-<html lang="en-us">
 <head>
-    <meta charset="UTF-8">
-    <title>Login to EvictionLand</title>
-    <link rel="stylesheet" href="/stylesheets/login.css">
+    <style>
+
+        .bar {
+            fill: #f9d4cc;
+        }
+
+        .axis {
+            font-size: 13px;
+        }
+
+        .axis path,
+        .axis line {
+            fill: none;
+            display: none;
+        }
+
+        .label {
+            font-size: 13px;
+        }
+
+        .ranking_name{
+            font-family: GT-Eesti-Text-Bold,sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+        }
+    </style>
 </head>
+
 <body>
-<div class="header"></div>
-<div class="loginForm">
-    <h1>Rankings</h1>
-    <% if (data) { %>
-    <h2><%=data[0].rank%></h2>
-    <h2><%=data[0].state%></h2>
-    <h2><%=data[0].county%></h2>
-    <h2><%=data[0].case_numbers%></h2>
-    <% } %>
-</div>
+<div id="graphic"></div>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+<script>
+    //set up svg using margin conventions - we'll need plenty of room on the left for labels
+    var data = {};
+
+    var margin = {
+        top: 15,
+        right: 25,
+        bottom: 15,
+        left: 60
+    };
+
+    var width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+    var svg = d3.select("#graphic").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var x = d3.scale.linear()
+        .range([0, width])
+        .domain([0, d3.max(data, function (d) {
+            return d.value;
+        })]);
+
+    var y = d3.scale.ordinal()
+        .rangeRoundBands([height, 0], .1)
+        .domain(data.map(function (d) {
+            return d.name;
+        }));
+
+    //make y axis to show bar names
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        //no tick marks
+        .tickSize(0)
+        .orient("left");
+
+    var gy = svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+
+    var bars = svg.selectAll(".bar")
+        .data(data)
+        .enter()
+        .append("g")
+
+    //append rects
+    bars.append("rect")
+        .attr("class", "bar")
+        .attr("y", function (d) {
+            return y(d.name);
+        })
+        .attr("height", y.rangeBand())
+        .attr("x", 0)
+        .attr("width", function (d) {
+            return x(d.value);
+        });
+
+    //add a value label to the right of each bar
+    bars.append("text")
+        .attr("class", "ranking_name")
+        //y position of the label is halfway down the bar
+        .attr("y", function (d) {
+            return y(d.name) + y.rangeBand() / 2 + 4;
+        })
+        //x position is 3 pixels to the right of the bar
+        .attr("x", function (d) {
+            return  10;
+        })
+        .text(function (d) {
+            return d.name.toUpperCase() +"   "+ d.value +"%";
+        });
 
 
-
+    /* //tooltip
+     var state = svg.selectAll(".bar");
+     state.selectAll("rect")
+         .data(function(d) {
+             return d.ages;
+         })
+         .enter().append("rect")
+         .attr("width", x.rangeBand())
+         .attr("y", function(d) { return y(d.y1); })
+         .attr("x",function(d) { //add to stock code
+             return x(d.mystate)
+         })
+         .attr("height", function(d) { return y(d.y0) - y(d.y1); })
+         .attr("class", function(d) {
+             classLabel = d.name.replace(/\s/g, ''); //remove spaces
+             return "class" + classLabel;
+         })
+         .style("fill", function(d) { return color(d.name); });*/
+</script>
 </body>
-</html>
