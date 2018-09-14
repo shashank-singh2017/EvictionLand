@@ -9,7 +9,12 @@
 <div class="header"></div>
 <div class="loginForm">
     <h1>Rankings</h1>
-
+    <% if (data) { %>
+    <h2><%=data[0].rank%></h2>
+    <h2><%=data[0].state%></h2>
+    <h2><%=data[0].county%></h2>
+    <h2><%=data[0].case_numbers%></h2>
+    <% } %>
 </div>
 
 

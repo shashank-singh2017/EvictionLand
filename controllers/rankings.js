@@ -5,6 +5,12 @@
  *
  */
 
+var xlsx = require('xlsx');
+var data = xlsx.readFile('./public/data/data.xlsx').Sheets.Sheet1;
+
 module.exports.rankings = function(req,res) {
-    res.render('../views/rankings');
+    var dataJsonArray = xlsx.utils.sheet_to_json(data).slice(0,10);
+
+    res.render('../views/rankings', {data:dataJsonArray});
 };
+
