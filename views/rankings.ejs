@@ -63,7 +63,7 @@
     var y = d3.scale.ordinal()
         .rangeRoundBands([height, 0], .1)
         .domain(data.map(function (d) {
-            return d.state;
+            return d.county;
         }));
 
     //make y axis to show bar names
@@ -71,7 +71,8 @@
         .scale(y)
         //no tick marks
         .tickSize(0)
-        .orient("left");
+        .orient("left").
+        text(d.rank);
 
     var gy = svg.append("g")
         .attr("class", "y axis")
@@ -86,7 +87,7 @@
     bars.append("rect")
         .attr("class", "bar")
         .attr("y", function (d) {
-            return y(d.state);
+            return y(d.county);
         })
         .attr("height", y.rangeBand())
         .attr("x", 0)
@@ -99,14 +100,28 @@
         .attr("class", "ranking_name")
         //y position of the label is halfway down the bar
         .attr("y", function (d) {
-            return y(d.state) + y.rangeBand() / 2 + 4;
+            return y(d.county) + y.rangeBand() / 2 + 4;
         })
         //x position is 3 pixels to the right of the bar
         .attr("x", function (d) {
             return  10;
         })
         .text(function (d) {
-            return d.state.toUpperCase() +"   "+ d.case_numbers +"";
+            return d.county+"   "+ d.case_numbers;
+        });
+
+    bars.append("text")
+        .attr("class", "ranks")
+        //y position of the label is halfway down the bar
+        .attr("y", function (d) {
+            return y(d.county) + y.rangeBand() / 2 + 4;
+        })
+        //x position is 3 pixels to the right of the bar
+        .attr("x", function (d) {
+            return  -30;
+        })
+        .text(function (d) {
+            return d.rank;
         });
 </script>
 </body>
