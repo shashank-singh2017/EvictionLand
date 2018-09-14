@@ -14,7 +14,7 @@ html {
     padding-top: 0px;
 }
 
-.okButton {
+.okButton, .cancelButton {
     font-size: 14px;
     border: 1px solid;
     border-color: white;
@@ -23,11 +23,22 @@ html {
     background-color: black;
 }
 
-.loginForm {
+.loginForm, .signupForm {
     margin-left: 40%;
     padding-top: 5%;
 }
 
-.username, .password {
+.email, .name, .phone {
     width: 220px;
+    height: 28px;
+}
+
+.password {
+    width: 197px;
+    height: 28px;
+}
+
+.inputFields {
+    margin-top: 10px;
+
 }

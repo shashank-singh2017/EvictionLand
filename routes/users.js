@@ -10,4 +10,7 @@ router.get('/', function(req, res, next) {
 /* Get Login Page */
 router.get('/login', usersController.login);
 
+/* Get the Signup Page */
+router.get('/signup', usersController.signup);
+
 module.exports = router;
