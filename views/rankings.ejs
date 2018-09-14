@@ -2,35 +2,33 @@
 <meta charset="utf-8">
 
 <head>
-    <style>
-
-        .bar {
-            fill: #f9d4cc;
-        }
-
-        .axis {
-            font-size: 13px;
-        }
-
-        .axis path,
-        .axis line {
-            fill: none;
-            display: none;
-        }
-
-        .label {
-            font-size: 13px;
-        }
-
-        .ranking_name{
-            font-family: GT-Eesti-Text-Bold,sans-serif;
-            font-size: 14px;
-            font-weight: 400;
-        }
-    </style>
+    <link rel="stylesheet" href="/stylesheets/form.css">
+    <link rel="stylesheet" href="/stylesheets/bargraph.css">
 </head>
 
 <body>
+<div class="header"></div>
+<div>
+    <form class="signupForm" method="get" action="/rankings/state">
+        <select name="selectedState" >
+            <%
+            var options =  states;
+            for ( var i = 0; i < options.length; i++ )
+            {
+            %>
+                <option value="<%=options[ i ].state %>" <%=selected == options[ i ].state?"selected":""%>>
+                    <%=options[ i ].state %>
+                </option>
+            <%
+            }
+            %>
+        </select>
+
+        <button type="submit">Filter</button>
+    </form>
+
+</div>
+
 <div id="graphic"></div>
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -39,7 +37,7 @@
     var data ;
     data = <%- JSON.stringify(data)%>;
     var margin = {
-        top: 15,
+        top: 50,
         right: 25,
         bottom: 15,
         left: 60
