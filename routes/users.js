@@ -13,4 +13,10 @@ router.get('/login', usersController.login);
 /* Get the Signup Page */
 router.get('/signup', usersController.signup);
 
+/* Handle Signup Data */
+router.post('/handleSignup', usersController.handleSignup);
+
+/* Handle Signin data */
+router.post('/handleSignin', usersController.handleSignin);
+
 module.exports = router;

@@ -2,14 +2,15 @@
 <meta charset="utf-8">
 
 <head>
-    <link rel="stylesheet" href="/stylesheets/form.css">
     <link rel="stylesheet" href="/stylesheets/bargraph.css">
 </head>
 
 <body>
 <div class="header"></div>
 <div>
-    <form class="signupForm" method="get" action="/rankings/state">
+
+    <% include header %>
+    <form class="rankingForm" method="get" action="/rankings/state">
         <select name="selectedState" >
             <%
             var options =  states;
