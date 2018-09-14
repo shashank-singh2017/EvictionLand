@@ -36,8 +36,8 @@
 
 <script>
     //set up svg using margin conventions - we'll need plenty of room on the left for labels
-    var data = {};
-
+    var data ;
+    data = <%- JSON.stringify(data)%>;
     var margin = {
         top: 15,
         right: 25,
@@ -57,17 +57,17 @@
     var x = d3.scale.linear()
         .range([0, width])
         .domain([0, d3.max(data, function (d) {
-            return d.value;
+            return d.case_numbers;
         })]);
 
     var y = d3.scale.ordinal()
         .rangeRoundBands([height, 0], .1)
         .domain(data.map(function (d) {
-            return d.name;
+            return d.state;
         }));
 
     //make y axis to show bar names
-    var yAxis = d3.svg.axis()
+    /*var yAxis = d3.svg.axis()
         .scale(y)
         //no tick marks
         .tickSize(0)
@@ -75,7 +75,7 @@
 
     var gy = svg.append("g")
         .attr("class", "y axis")
-        .call(yAxis)
+        .call(yAxis)*/
 
     var bars = svg.selectAll(".bar")
         .data(data)
@@ -86,12 +86,12 @@
     bars.append("rect")
         .attr("class", "bar")
         .attr("y", function (d) {
-            return y(d.name);
+            return y(d.state);
         })
         .attr("height", y.rangeBand())
         .attr("x", 0)
         .attr("width", function (d) {
-            return x(d.value);
+            return x(d.case_numbers);
         });
 
     //add a value label to the right of each bar
@@ -99,34 +99,14 @@
         .attr("class", "ranking_name")
         //y position of the label is halfway down the bar
         .attr("y", function (d) {
-            return y(d.name) + y.rangeBand() / 2 + 4;
+            return y(d.state) + y.rangeBand() / 2 + 4;
         })
         //x position is 3 pixels to the right of the bar
         .attr("x", function (d) {
             return  10;
         })
         .text(function (d) {
-            return d.name.toUpperCase() +"   "+ d.value +"%";
+            return d.state.toUpperCase() +"   "+ d.case_numbers +"";
         });
-
-
-    /* //tooltip
-     var state = svg.selectAll(".bar");
-     state.selectAll("rect")
-         .data(function(d) {
-             return d.ages;
-         })
-         .enter().append("rect")
-         .attr("width", x.rangeBand())
-         .attr("y", function(d) { return y(d.y1); })
-         .attr("x",function(d) { //add to stock code
-             return x(d.mystate)
-         })
-         .attr("height", function(d) { return y(d.y0) - y(d.y1); })
-         .attr("class", function(d) {
-             classLabel = d.name.replace(/\s/g, ''); //remove spaces
-             return "class" + classLabel;
-         })
-         .style("fill", function(d) { return color(d.name); });*/
 </script>
 </body>
