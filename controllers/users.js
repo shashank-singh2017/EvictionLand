@@ -31,7 +31,7 @@ module.exports.handleSignin = function(req,res) {
     const password = req.body.password;
 
     if(email === 'cmpe280@gmail.com' && password === 'password') {
-        res.redirect('/rankings');
+        res.redirect('/home');
     } else {
         res.redirect('/users/login');
     }
