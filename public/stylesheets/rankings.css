@@ -1,0 +1,25 @@
+.heading {
+    font-size: 18px;
+    font-family: SansSerif;
+    font-weight: 700;
+}
+
+.rankingheading {
+    text-align: center;
+    font-size: 18px;
+    font-family: SansSerif;
+    font-weight: 700;
+    margin-top: 2%;
+}
+
+.okButton {
+    font-size: 14px;
+    border: 1px solid;
+    border-color: white;
+    color: white;
+    font-weight: 400;
+    background-color: maroon;
+}
+.stateDropdown {
+    margin-top: 1%;
+}

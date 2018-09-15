@@ -5,7 +5,6 @@ html, body {
 
 .mainImage {
     background-image: url("/images/evictionmain.jpg");
-    background-color: red;
     height: 80%;
     background-repeat: no-repeat;
     background-size: cover;

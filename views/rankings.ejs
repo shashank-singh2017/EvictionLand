@@ -3,15 +3,16 @@
 
 <head>
     <link rel="stylesheet" href="/stylesheets/bargraph.css">
+    <link rel="stylesheet" href="/stylesheets/rankings.css">
 </head>
 
 <body>
 <div class="header"></div>
 <div>
-
     <% include header %>
     <form class="rankingForm" method="get" action="/rankings/state">
-        <select name="selectedState" >
+        <div class="heading">Please Select a region to display Eviction Rankings</div>
+        <select name="selectedState" class="stateDropdown">
             <%
             var options =  states;
             for ( var i = 0; i < options.length; i++ )
@@ -25,20 +26,20 @@
             %>
         </select>
 
-        <button type="submit">Filter</button>
+        <button class="okButton" type="submit">Go</button>
     </form>
 
 </div>
 
+<div class="rankingheading">Top 10 results with Eviction Rate in Descending order: </div>
 <div id="graphic"></div>
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-
 <script>
     //set up svg using margin conventions - we'll need plenty of room on the left for labels
     var data ;
     data = <%- JSON.stringify(data)%>;
     var margin = {
-        top: 50,
+        top: 20,
         right: 25,
         bottom: 15,
         left: 60
@@ -64,18 +65,6 @@
         .domain(data.map(function (d) {
             return d.county;
         }));
-
-    //make y axis to show bar names
-    /*var yAxis = d3.svg.axis()
-        .scale(y)
-        //no tick marks
-        .tickSize(0)
-        .orient("left").
-        text(d.rank);
-
-    var gy = svg.append("g")
-        .attr("class", "y axis")
-        .call(yAxis)*/
 
     var bars = svg.selectAll(".bar")
         .data(data)
