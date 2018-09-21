@@ -1,43 +1,46 @@
-    <DOCTYPE html>
-    <html lang="en-us">
-    <head>
-        <meta charset="UTF-8">
-        <title>Login to EvictionLand</title>
-        <link rel="stylesheet" href="/stylesheets/form.css">
-    </head>
-    <body>
+<DOCTYPE html>
+  <html lang="en-us">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Login to EvictionLand</title>
+    <link rel="stylesheet" href="/stylesheets/form.css">
+  </head>
+
+  <body>
     <% include header %>
-    <div class="signupForm">
+      <div class="signupForm">
         <div class="textBox">
-            SignUp
+          SignUp
         </div>
-        <form action="/users/handleSignup" method="post" >
-            <div class="inputFields">
-                <label class="feildName">Name: </label>
-                <input class="name" name="userName" type="text" />
-            </div>
+        <form action="/users/handleSignup" method="post">
+          <div class="inputFields">
+            <label class="feildName">Name: </label>
+            <input class="name" name="userName" type="text" />
+          </div>
 
-            <div class="inputFields">
-                <label class="feildName">Email:</label>
-                <input class="email" name="email" type="text" />
-            </div>
+          <div class="inputFields">
+            <label class="feildName">Email:</label>
+            <input class="email" name="email" type="text" />
+          </div>
 
-            <div class="inputFields">
-                <label class="feildName">Password:</label>
-                <input class="password" name="password" type="password" />
-            </div>
+          <div class="inputFields">
+            <label class="feildName">Password:</label>
+            <input class="password" name="password" type="password" />
+          </div>
 
 
-            <div class="inputFields">
-                <label class="feildName">Phone:</label>
-                <input class="phone" name="phone" type="text" />
-            </div>
+          <div class="inputFields">
+            <label class="feildName">Phone:</label>
+            <input class="phone" name="phone" type="text" />
+          </div>
 
-            <div class="inputFields">
-                <input class="okButton" type="submit" value="Submit" />
-                <button class="cancelButton" name="cancel">Cancel</button>
-            </div>
+          <div class="inputFields">
+            <input class="okButton" type="submit" value="Submit" />
+            <button class="cancelButton" name="cancel">Cancel</button>
+          </div>
         </form>
-    </div>
-    </body>
-    </html>
+      </div>
+  </body>
+
+  </html>
