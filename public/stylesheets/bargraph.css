@@ -1,3 +1,7 @@
+html, body {
+  margin: 0;
+}
+
 .bar {
     fill: #f9d4cc;
 }
