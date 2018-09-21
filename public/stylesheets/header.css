@@ -11,10 +11,10 @@ li {
 }
 
 li a {
-    display: block;
+    display: inline-block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 17px 16px;
     text-decoration: none;
 }
 
@@ -26,4 +26,10 @@ li span {
     text-decoration: none;
     font-weight: 900;
     font-size: 22px;
+}
+
+/* css for link hover in navigation bar */
+nav ul li a:hover {
+    background-color: white;
+    color: black;
 }

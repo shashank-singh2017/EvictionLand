@@ -12,7 +12,3 @@ html, body {
     display: flex;
     flex-direction: row;
 }
-
-.mainBody {
-    margin-top: 3px;
-}
