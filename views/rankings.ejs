@@ -94,7 +94,7 @@
         .on("mousemove", function (d) {
             return tooltip.style("top",
                 (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px")
-                .text(d.rank +"   "+d.county + "   " + d.case_numbers);
+                .text("Rank: "+d.rank +"\nCounty: "+d.county + "\nCase No.: " + d.case_numbers);
         })
         .on("mouseout", function () {
             return tooltip.style("visibility", "hidden");
