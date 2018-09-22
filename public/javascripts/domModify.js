@@ -1,4 +1,5 @@
 function headerModification(){
+
     const path = window.location.href;
 
     const pathArray = path.split('/');
@@ -49,6 +50,12 @@ function headerModification(){
         ulist.removeChild(ulist.childNodes[4]);
         ulist.removeChild(ulist.childNodes[4]);
         ulist.removeChild(ulist.childNodes[4]);
+    }
+
+    if(path.includes('rankings')) {
+      var nums = document.getElementById('numbers');
+
+      nums.innerText = window.bars.size()+ " ";
     }
 }
 
@@ -130,5 +137,6 @@ function draw() {
     }
 }
 
-
-
+function abc() {
+    return "5";
+}
