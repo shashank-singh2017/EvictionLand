@@ -11,6 +11,7 @@
   <body onload=headerModification()>
     <% include header %>
       <div class="loginForm">
+        <div class="message"><label><%=message %></label></div>
         <div class="textBox">
           SignIn
         </div>
@@ -30,6 +31,10 @@
           <div class="inputFields">
             <input class="okButton" type="submit" value="Submit" />
             <input class="clearButton" type="button" value="Clear" onclick="clearForm()"/>
+          </div>
+
+          <div class="errorDiv">
+            <label class="error"><%= error%></label>
           </div>
         </form>
       </div>

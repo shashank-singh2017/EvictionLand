@@ -4,12 +4,16 @@ function headerModification(){
     const pathArray = path.split('/');
 
     const link = pathArray[pathArray.length-1];
-
+    console.log(link);
     if(link === 'home') {
         let ulist = document.getElementById('navList');
 
-        ulist.removeChild(ulist.childNodes[7]);
-        ulist.removeChild(ulist.childNodes[8]);
+        ulist.removeChild(ulist.childNodes[2]);
+        ulist.removeChild(ulist.childNodes[2]);
+        ulist.removeChild(ulist.childNodes[4]);
+        ulist.removeChild(ulist.childNodes[4]);
+        ulist.removeChild(ulist.childNodes[4]);
+        ulist.removeChild(ulist.childNodes[4]);
     }
 
     if(link === 'rankings') {
@@ -20,18 +24,31 @@ function headerModification(){
         ulist.removeChild(ulist.childNodes[7]);
     }
 
-    if(link === 'login' || link === '') {
-      let ulist = document.getElementById('navList');
+    if(link === 'login' || link === '' || link === 'logout' || link ==="handleSignin" || link === "handleSignup") {
+        let ulist = document.getElementById('navList');
 
-      ulist.removeChild(ulist.childNodes[5]);
-      ulist.removeChild(ulist.childNodes[6]);
+        ulist.removeChild(ulist.childNodes[2]);
+        ulist.removeChild(ulist.childNodes[2]);
+        ulist.removeChild(ulist.childNodes[2]);
+        ulist.removeChild(ulist.childNodes[2]);
+        ulist.removeChild(ulist.childNodes[2]);
+        ulist.removeChild(ulist.childNodes[2]);
+        ulist.removeChild(ulist.childNodes[4]);
+        ulist.removeChild(ulist.childNodes[4]);
+
     }
 
     if(link === 'signup') {
         let ulist = document.getElementById('navList');
 
-        ulist.removeChild(ulist.childNodes[5]);
-        ulist.removeChild(ulist.childNodes[8]);
+        ulist.removeChild(ulist.childNodes[2]);
+        ulist.removeChild(ulist.childNodes[2]);
+        ulist.removeChild(ulist.childNodes[2]);
+        ulist.removeChild(ulist.childNodes[2]);
+        ulist.removeChild(ulist.childNodes[4]);
+        ulist.removeChild(ulist.childNodes[4]);
+        ulist.removeChild(ulist.childNodes[4]);
+        ulist.removeChild(ulist.childNodes[4]);
     }
 }
 

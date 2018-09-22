@@ -3,7 +3,10 @@
  * A user can login to the EvictionLand by hitting /users/login
  */
 module.exports.login = function(req,res) {
-    res.render('../views/login');
+    res.render('../views/login',{
+        message :"",
+        error:""
+    });
 };
 
 /*
@@ -19,20 +22,32 @@ module.exports.signup = function(req,res) {
 module.exports.handleSignup = function(req,res) {
     console.log(req.body);
     console.log("signup successfull");
-    res.redirect('/users/login');
+    res.render('../views/login', {
+        message : "Sign up successful",
+        error:""
+    });
 };
 
 /*
  * Handle Signin
  */
 module.exports.handleSignin = function(req,res) {
-    console.log(req.body);
     const email = req.body.email;
     const password = req.body.password;
 
-    if(email === 'cmpe280@gmail.com' && password === 'password') {
+    if(email == 'cmpe280@gmail.com' && password == 'Password1@') {
         res.redirect('/home');
     } else {
-        res.redirect('/users/login');
+        res.render('../views/login',{
+            message : "",
+            error: "Invalid Username/Password"
+        });
     }
+};
+
+module.exports.logout = function(req,res) {
+    res.render('../views/login',{
+        message :"",
+        error:""
+    });
 };

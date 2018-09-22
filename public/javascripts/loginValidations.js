@@ -50,6 +50,6 @@ function clearErrors() {
 
 function clearForm(){
     clearErrors();
-    document.forms["signupForm"]["email"].value = "";
-    document.forms["signupForm"]["password"].value = "";
+    document.forms["loginForm"]["email"].value = "";
+    document.forms["loginForm"]["password"].value = "";
 }

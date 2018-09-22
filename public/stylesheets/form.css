@@ -55,3 +55,12 @@ html {
     color: red;
     font-size: small;
 }
+
+.message{
+    color: mediumseagreen;
+    margin-bottom: 20px;
+}
+
+.errorDiv{
+    margin-top: 20px;
+}
