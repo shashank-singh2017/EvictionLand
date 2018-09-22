@@ -93,7 +93,6 @@ function drawCanvas(c1, c2) {
 function loop() {
     draw();
     time += 0.03;
-    frame ++;
     requestAnimationFrame(loop);
 }
 
@@ -113,4 +112,6 @@ function draw() {
         x += letter.width + 5;
     }
 }
+
+
 
